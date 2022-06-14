@@ -1,0 +1,254 @@
+body{
+  background-color: #D4ECE5;
+  font-family: 'roboto', sans-serif;
+}
+body a{
+  text-decoration: none;
+ 
+}
+
+/* navbar */
+
+.mynav a{
+  color: #333333;
+}
+.mynav a{
+  
+  border-bottom: 3px solid transparent;
+}
+.mynav a:hover{
+  color: #CC9966;
+  border-bottom: 3px solid #CC9966;
+}
+
+
+.round{
+  background-color: #333333;
+  
+}
+.round a  {
+  color: white;
+}
+.down {
+  background-color: #333333;
+}
+.down button {
+  color: white;
+}
+
+/* jenis */
+.jenis li {
+  list-style-type: none;
+  margin-right: 10px;
+  padding: 5px;
+  background-color: #333333;
+  border-radius: 5px;
+
+}
+
+.jenis  a{
+  color: #D4ECE5;
+  font-size: larger;
+}
+.jenis a:hover{
+  opacity: 0.5;
+}
+
+
+/* end */
+.hover {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 80%;
+}
+
+.hover-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  transition: all 0.4s;
+}
+
+.hover img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
+}
+
+.hover-content {
+  position: relative;
+  z-index: 99;
+}
+
+
+.hover-2 .hover-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+}
+
+.hover-2-title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 99;
+  transition: all 0.3s;
+}
+
+.hover-2-description {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  left: 0;
+  text-align: center;
+  z-index: 99;
+  transition: all 0.3s;
+}
+
+.hover-2:hover .hover-2-title {
+  transform: translateY(-1.5rem);
+}
+
+.hover-2:hover .hover-2-description {
+  bottom: 0.5rem;
+  opacity: 1;
+}
+
+.hover-2:hover .hover-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.1));
+}
+
+nav sticky{
+ padding: 5px 100px;
+ background-color: #D4ECE5;
+}
+
+.btndiskon{
+  background-color: #CC9966;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  opacity: 0.8;
+}
+.btndiskon:hover{
+  background-color: white;
+  color: #CC9966;
+  opacity: 1;
+}
+
+@media (max-width: 575.98px) {
+  .produk {
+    position: absolute;
+    top: 74%;
+    opacity: 1;
+    width: 100%;
+  }
+  
+
+}
+/* produk */
+.produk {
+  position: absolute;
+  top: 74%;
+  opacity: 0;
+  width: 100%;
+}
+
+.btnpro{
+  background-color: #CC9966;
+  color: white;
+  opacity: 1;
+}
+.btnpro:hover{
+  background-color: white;
+  color: #CC9966;
+  opacity: 1;
+}
+.card:hover .produk {
+  top: 221px;
+  opacity: 1;
+  transition:all .2s ease-out;
+}
+/* produk */
+
+/* trending */
+.trending{
+  /* From https://css.glass */
+background: rgba(255, 255, 255, 0.49);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+
+border: 1px solid rgba(255, 255, 255, 0.3);
+filter: drop-shadow(-5px 5px 10px #000);
+}
+.trending:hover{
+  opacity: 0.9;
+}
+/* Batas trending */
+
+
+/* keranjang */
+.keranjang{
+  background: #fffefe;
+  background: linear-gradient(180deg,#fffefe 0%, #d4ece5 80%);
+  background: -webkit-linear-gradient(180deg,#fffefe 0%, #d4ece5 80%);
+  background: -moz-linear-gradient(180deg,#fffefe 0%, #d4ece5 80%);
+}
+
+.belikeranjang{
+  padding: 6px;
+  background-color: #CC9966;
+  margin-left: 1000px;
+  border-radius: 10px;
+}
+.belikeranjang:hover{
+  background-color: #d86e05;
+}
+
+/* 
+BELIPRODUK */
+.btnproduk{
+  background-color: #CC9966;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  
+}
+.btnproduk:hover{
+  background-color: white;
+  color: #CC9966;
+  
+}
+
+/* view */
+.bayangan{
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.46);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.6px);
+-webkit-backdrop-filter: blur(8.6px);
+border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.figure p{
+  color: black;
+}
+
+/* checkout */
+.checkout-form label{
+  font-size: 12px;
+  font-weight: 700;
+}
+.checkout-form input{
+  font-size: 14px;
+  padding: 5px;
+  font-weight: 400;
+}
