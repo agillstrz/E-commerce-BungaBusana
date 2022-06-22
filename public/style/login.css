@@ -1,0 +1,51 @@
+body {
+    background-color: #cc9966;
+}
+
+.foter {
+    background-color: #333333;
+}
+
+.divider:after,
+.divider:before {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #eee;
+}
+
+.btnlogin {
+    background-color: #cc9966;
+    color: white;
+    border: 1px solid white;
+}
+
+.btnlogin:hover {
+    background-color: white;
+    color: #cc9966;
+    border: 1px solid #cc9966;
+}
+
+.h-custom {
+    height: calc(100% - 73px);
+}
+
+.borderlog {
+    border: 2px solid #ffffff;
+    border-radius: 23px;
+    padding: 20px;
+}
+
+.b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: solid rgba(0, 0, 0, 0.15);
+    border-width: 1px 0;
+    box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+        inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+}
+
+.bi {
+    vertical-align: -0.125em;
+    fill: currentColor;
+}

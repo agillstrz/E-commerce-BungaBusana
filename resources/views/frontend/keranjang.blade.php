@@ -1,7 +1,9 @@
 @extends('frontend.index')
-
+@section('title')
+    Keranjang
+@endsection
 @section('conten')
-<div class="container-fluid p-5 keranjang" style="margin-top: 90px;">
+<div class="container-fluid p-2 keranjang" style="margin-top: 90px;">
 
     <h1 class="text-center fs-1 fw-bold">Keranjang <br><p class="fw-normal fs-5">Belanja</p></h1>
   </div>
@@ -12,27 +14,25 @@
     <div class="table-responsive">
 
         <table class="table align-middle text-center">
-          <thead>
+          <thead class="table-dark">
             <tr>
-              <th scope="col" class="w-50 text-start">Produk</th>
+              <th scope="col" class=" text-start">Foto</th>
+              <th scope="col" class=" text-start">Nama</th>
               <th scope="col">harga satuan</th>
               <th scope="col" style="width:110px;">Kuantitas</th>
-              
               <th scope="col">Aksi</th>
             </tr>
           </thead>
           @php
               $total=0;
           @endphp
-          <tbody> @foreach ($keranjang as $item)
-          <tr class="fw-bold border border-warning product_data">
-             
-              
-       
-              <td class=" d-flex"><img src="{{ asset('assets/uploads/produk/'. $item->product->image) }}" width="100px" alt="">
-            <h4 class="fw-bold">{{ $item->product->name }}</h4></td>
+          <tbody>
+             @foreach ($keranjang as $item)
 
-              <td>{{ "Rp. ".number_format($item->product->harga_jual,0,"",".")   }}</td>
+             <tr class="fw-bold border border-dark product_data">
+              <td class=""><img src="{{ asset('assets/uploads/produk/'. $item->product->image) }}" width="100px" alt=""></td>
+              <td><h4 class="fw-bold">{{ $item->product->name }}</h4></td>
+              <td>{{ "Rp. ".number_format($item->product->harga_jual * $item->prod_qty,0,"",".")   }}</td>
 
               @if ($item->product->qty >= $item->prod_qty)
               <td> 
@@ -63,10 +63,13 @@
         </div>
     </div>
     @else
-        <div class="card">
-          <div class="card-body">
-            hehe
+        <div class="card mt-2">
+          <div class="card-body text-center">
+            <img src="{{ asset('assets/images/keranjang0.jpg') }}" height="300px" alt="">
+            <h3 class="text-danger font-bold fs-1">Upss! Keranjang Masih Kosong!</h3>
+            <a class="btn btnproduk" href="{{ url('home') }}">Ayo Belanja sekarang</a>
           </div>
         </div>
     @endif
 @endsection  
+

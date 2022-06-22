@@ -20,9 +20,12 @@ return new class extends Migration
             $table->string('namabelakang');
             $table->string('email');
             $table->string('Nohp');
-            $table->string('alamat');
+            $table->string('provinsi');
             $table->string('kota');
+            $table->string('alamat');
+            $table->string('detail')->nullable();
             $table->string('kodepos');
+            $table->string('image');
             $table->string('totalharga');
             $table->tinyInteger('status')->default('0');
             $table->string('message')->nullable();

@@ -14,8 +14,7 @@
     <link rel="stylesheet" href="{{ asset('owlcarousel/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('style/frontend.css') }}">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-
-    <title>@yield('Title')</title>
+    <title>@yield('title')</title>
   </head>
   <body>
 
@@ -35,6 +34,7 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="owlcarousel/owl.carousel.min.js"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('js/checkout.js') }}"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
     

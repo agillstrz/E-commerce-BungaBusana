@@ -9,6 +9,7 @@ use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use Laravel\Ui\Presets\React;
 use App\Http\Controllers\Controller;
+use App\Models\Pembayaran;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -31,13 +32,22 @@ class CheckoutController extends Controller
     public function placeorder(Request $request)
     {
         $order =  new Order();
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $ext = $file->getClientOriginalExtension();
+            $filename = time().'.'.$ext;
+            $file->move('assets/uploads/bukti/',$filename);
+            $order->image=$filename;
+        }
         $order->user_id = Auth::id();
         $order->namadepan = $request->input('namadepan');
         $order->namabelakang = $request->input('namabelakang');
         $order->email = $request->input('email');
         $order->Nohp = $request->input('Nohp');
-        $order->alamat = $request->input('alamat');
+        $order->provinsi = $request->input('provinsi');
         $order->kota = $request->input('kota');
+        $order->alamat = $request->input('alamat');
+        $order->detail = $request->input('detail');
         $order->Kodepos = $request->input('Kodepos');
         
         
@@ -76,7 +86,6 @@ if (Auth::user() -> alamat == 0)
     $user->namabelakang = $request->input('namabelakang');
     $user->Nohp = $request->input('Nohp');
     $user->alamat = $request->input('alamat');
-    $user->kota = $request->input('kota');
     $user->Kodepos = $request->input('Kodepos');
     $user->update(); 
 }
@@ -86,5 +95,13 @@ if (Auth::user() -> alamat == 0)
         Cart::destroy($keranjang);
         return redirect('/')->with('status','Order telah selesai');
     }
+
+
+    
+
+
+
+
+    
 
 }

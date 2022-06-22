@@ -17,10 +17,7 @@
       <label for="slug" class="form-label">slug</label>
       <input type="text"  class="form-control"  name="slug" id="slug">
     </div>
-    <div class="col-md-6">
-      <label for="deskripsi" class="form-label">Deskripsi</label>
-      <input type="text" class="form-control" name="deskripsi" id="deskripsi" ">
-    </div>
+  
  
     <div class="col-md-12 form-check-inline">
       <input type="checkbox" class="form-check-input" name="status">

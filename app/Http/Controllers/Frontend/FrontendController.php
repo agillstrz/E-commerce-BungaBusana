@@ -13,9 +13,16 @@ class FrontendController extends Controller
 {
 
     public function index(){
-        $produkunggulan = Product::where('trending','1')->take(15)->get();
+        $produkunggulan = Product::where('trending','1')->take(10)->get();
+        $semuaproduk = Product::where('status','1')->take(4)->get();
         $kategori = Category::all();
-        return view('frontend.home', compact('produkunggulan','kategori'));
+        return view('frontend.home', compact('produkunggulan','kategori','semuaproduk'));
+    }
+
+    public function indexx(){
+        $semuaproduk = Product::where('status','1')->get();
+        $kategori = Category::all();
+        return view('frontend.produk.semuaproduk', compact('semuaproduk'));
     }
 
     public function tampilankategori($slug){

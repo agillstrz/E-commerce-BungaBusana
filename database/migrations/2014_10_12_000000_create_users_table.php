@@ -17,15 +17,15 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('username')->unique();
+            $table->tinyInteger('role_as')->default('0');
             $table->string('namadepan')->nullable();
             $table->string('namabelakang')->nullable();
             $table->text('alamat')->nullable();
             $table->string('kodepos')->nullable();
-            $table->string('kota')->nullable();
             $table->string('Nohp')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->tinyInteger('role_as')->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

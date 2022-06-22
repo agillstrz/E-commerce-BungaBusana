@@ -18,10 +18,7 @@
       <label for="slug" class="form-label">slug</label>
       <input type="text" value="{{ $category->slug }}"  class="form-control"  name="slug" id="slug">
     </div>
-    <div class="col-md-6">
-      <label for="deskripsi" class="form-label">Deskripsi</label>
-      <input type="text" value="{{ $category->deskripsi }}"  class="form-control" name="deskripsi" id="deskripsi" ">
-    </div>
+
  
     <div class="col-md-6 form-check-inline">
       <input type="checkbox" {{ $category->status == "1" ? 'checked' : ''}} class="form-check-input" name="status">

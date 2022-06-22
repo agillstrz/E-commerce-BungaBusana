@@ -9,8 +9,10 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\frontend\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\frontend\BayarController;
 use App\Http\Controllers\frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,11 +25,15 @@ use App\Http\Controllers\Frontend\FrontendController;
 |
 */
 
+
+
+
 Route::get('produklist',[FrontendController::class, 'produklistajax']);
 Route::post('cariproduk',[FrontendController::class, 'cariproduk']);
 
 Route::get('/',[FrontendController::class, 'index']);
 Route::get('/home',[FrontendController::class, 'index']);
+Route::get('semuaproduk',[FrontendController::class, 'indexx']);
 Route::get('kategori/{slug}',[FrontendController::class, 'tampilankategori']);
 Route::get('kategori/{cate_slug}/{prod_slug}',[FrontendController::class, 'tampilanproduk']);
 
@@ -46,6 +52,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('orderlist', [UserController::class, 'index']);
     Route::get('view-order/{id}', [UserController::class, 'view']);
+
+    Route::post('proses-pembayaran', [CheckoutController::class, 'razor']);
 
    
 });

@@ -32,6 +32,9 @@ body a{
 .down {
   background-color: #333333;
 }
+.down a {
+  color: white;
+}
 .down button {
   color: white;
 }
@@ -189,6 +192,10 @@ backdrop-filter: blur(5px);
 border: 1px solid rgba(255, 255, 255, 0.3);
 filter: drop-shadow(-5px 5px 10px #000);
 }
+.hovertrend:hover{
+  opacity: .94;
+}
+
 .trending:hover{
   opacity: 0.9;
 }
@@ -252,3 +259,11 @@ border: 1px solid rgba(255, 255, 255, 0.35);
   padding: 5px;
   font-weight: 400;
 }
+
+.hovertrend:hover{
+  
+    filter: brightness(90%);
+    transition: all 0.15s linear;
+
+}
+

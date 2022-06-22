@@ -32,7 +32,6 @@ class CategoryController extends Controller
 
     $category->name = $request->input('name');
     $category->slug = $request->input('slug');
-    $category->deskripsi = $request->input('deskripsi');
     $category->status = $request->input('status')== TRUE ?'1':'0';
     $category->popular = $request->input('popular')== TRUE ?'1':'0';
     $category->save();
@@ -64,7 +63,6 @@ class CategoryController extends Controller
 
         $category->name = $request->input('name');
         $category->slug = $request->input('slug');
-        $category->deskripsi = $request->input('deskripsi');
         $category->status = $request->input('status')== TRUE ?'1':'0';
         $category->popular = $request->input('popular')== TRUE ?'1':'0';
         $category->update();

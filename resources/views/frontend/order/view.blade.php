@@ -13,14 +13,21 @@
             <div class="row p-3" >
 
                 <div class="col-md-6" style="width: 500px">
-                   <label for="">Nama Lengkap</label>
-                   <div class="border bg-white p-2">{{ $orders->namadepan . " ". $orders->namabelakang }}</div>
-                   <label for="">Email</label>
-                   <div class="border bg-white p-2">{{ $orders->email }}</div>
-                   <label for="">Alamat lengkap</label>
-                   <div class="border bg-white p-2">{{ $orders->alamat }}</div>
-                   <label for="">Kode pos</label>
-                   <div class="border bg-white p-2">{{ $orders->kodepos }}</div>
+                    <label for="">Nama Lengkap</label>
+                    <div class="border bg-white p-2">{{ $orders->namadepan . " ". $orders->namabelakang }}</div>
+                    <label for="">Email</label>
+                    <div class="border bg-white p-2">{{ $orders->email }}</div>
+                    <label for="">Kota</label>
+                    <div class="border bg-white p-2">{{ $orders->kota }}</div>
+                    <label for="">Provinsi</label>
+                    <div class="border bg-white p-2">{{ $orders->provinsi }}</div>
+                    <label for="">Alamat lengkap</label>
+                    <div class="border bg-white p-2">{{ $orders->alamat }}</div>
+                    <label for="">Kode pos</label>
+                    <div class="border bg-white p-2">{{ $orders->kodepos }}</div>
+                    <label for="">Detail Pesanan</label>
+                    <div class="border bg-white p-2">{{ $orders->detail }}</div>
+                   
                 </div>
                 <div class="col-md-6">
                     <table class="table border border-dark">
@@ -30,7 +37,7 @@
                                 <th class="col">Jumlah</th>
                                 <th class="col">Harga</th>
                                 <th class="col">Image</th>
-                       
+                               
                                
                             </tr>
                         </thead>
@@ -44,13 +51,18 @@
                                 </tr>
                               
                                 @endforeach
-                               
-                               
+                             
                             </tbody>
+                            
                         </table>
                         <h4>Harga Total : </h4>
-                        
-                            
+                        <h2>Bukti Pembayaran : <img src="{{ asset('assets/uploads/bukti/'. $orders->image) }}" width="70px" alt=""></h2>
+                    
+
+                     
+                       
+                      
+                                            
                 </div>
             </div>
         </div>

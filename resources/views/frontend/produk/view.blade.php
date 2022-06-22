@@ -1,5 +1,9 @@
 @extends('frontend.index')
 
+@section('title')
+    Tampilan Produk
+@endsection
+
 @section('conten')
 
 <div class="container" style="margin-top: 110px;">
@@ -13,22 +17,22 @@
           </div>
           <div class="col-md-6 border fw-bold">
             <div class="col-md-12 d-flex">
-              <h2 class="fw-bold text-capitalize justify-content-between mb-0">
+              <h3 class="text-capitalize justify-content-between mb-0">
                 @if ($produk->status == 1)
-                <label class="badge p-1 btn btn-success fs-5" style="margin-left: 400px">Trending</label>
+                <label class="badge p-1 btn btn-success fs-5" style="margin-left: 447px">Trending</label>
                 @else
                     
                 @endif
                
                 {{ $produk->name }}
              
-            </h2>
+            </h3>
             </div>
             <hr>
             <div class="col-md-12 d-flex">
               <h3>{{"Rp. ".number_format($produk->harga_jual,0,"",".")  }}</h3>
             </div>
-            <div class="col-md-12 d-flex">
+            <div class="col-md-12 d-flex font-bold text-capitalize">
               <h5>{{ $produk->category->name }}</h5>
             </div>
             <div class="col-md-12 d-flex">
@@ -76,11 +80,6 @@
       </div>
     </div>
   </div>
-
-
-
-
-    
 </div>
 @endsection
 
