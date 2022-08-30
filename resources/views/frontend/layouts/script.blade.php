@@ -9,6 +9,7 @@
 </script>
 
 
+<script src="{{ asset('js/zoom.js') }}"></script>
 
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   @if (session('status'))

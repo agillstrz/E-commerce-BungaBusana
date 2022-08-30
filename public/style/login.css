@@ -1,5 +1,5 @@
 body {
-    background-color: #cc9966;
+background-color: #cc9966;
 }
 
 .foter {
@@ -49,3 +49,38 @@ body {
     vertical-align: -0.125em;
     fill: currentColor;
 }
+
+/* navbar */
+
+.mynav a{
+  color: #333333;
+}
+
+
+
+.mynav a:hover{
+  color: #333333;
+  border-bottom: 1px solid #333333;
+  transition: all .2s;
+}
+
+
+.bb{
+  color: #333333;
+}
+
+
+
+
+@media (max-width: 575.98px) { 
+    .kontenlogin img{
+        display: none;
+    }
+    .loginhp{
+        margin: 100px 0 100px 0 ;
+        padding: 0 20px;
+    }
+    nav{
+        color: #333333;
+    }
+ }

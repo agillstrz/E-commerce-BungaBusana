@@ -1,0 +1,31 @@
+@media screen and (max-width: 768px) {
+
+  .styleprod{
+    height: 340px;
+  }  
+
+      .viewicon{
+        font-size: 3px;
+        right: 15px;
+      }
+    
+ 
+      table .fot{
+        display: none;
+      }
+      table .totpro{
+        display: none;
+      }
+      .sampulhp{
+        display: flex;
+        flex-wrap: wrap;
+        top: 40%;
+        left: 20%;
+      }
+
+      div .styleprod{
+        height: 320px;
+      }
+   
+    
+    }

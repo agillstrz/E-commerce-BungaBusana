@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 class CartController extends Controller
 {
           
+    public function cartcount()
+    {
+        $cartcount =  Cart::where('user_id', Auth::id())->count();
+        return response()->json(['count'=>$cartcount]);
+    }
         
     public function addproduk(Request $request)
     {
@@ -24,11 +29,16 @@ class CartController extends Controller
             if ($produk_cek) {
                 if(Cart::Where('prod_id',$produk_id)->where('user_id',Auth::id())->exists())
                 {
-                    return response()->json(['status'=>$produk_cek->name." sudah ditambahkan ke keranjang"]);
+                    return response()->json(['status'=>$produk_cek->name." sudah ada dalam keranjang"]);
                 }
+                if($produk_cek->qty<=0){
+                    return response()->json(['status'=>$produk_cek->name." sudah ada abis"]);
+                }
+     
+
+      
 
                 else{
-                    
 
                     $cartitem = new Cart();
                     
@@ -36,13 +46,13 @@ class CartController extends Controller
                     $cartitem->user_id = Auth::id();
                     $cartitem->prod_qty = $produk_qty;
                     $cartitem->save();
-                    return response()->json(['status'=>$produk_cek->name." Ditambahkan ke keranjang"]);
+                    return response()->json(['status'=>$produk_cek->name." Ditambahkan kedalam keranjang"]);
                 }
                 
             }
         }
         else {
-            return response()->json(['status'=>"Login to continue"]);
+            return response()->json(['status'=>"Login untuk melanjutkan"]);
         }
     }
 
@@ -64,7 +74,7 @@ class CartController extends Controller
             $keranjang= Cart::where('prod_id', $prod_id)->where('user_id', Auth::id())->first();
             $keranjang->prod_qty= $produk_qty;
             $keranjang->update();
-            return response()->json(['status'=>"update"]);
+            return response()->json(['success'=>"berhasil dihapus"]);
             }
         }
      
@@ -80,12 +90,12 @@ class CartController extends Controller
             {
                 $keranjang = Cart::where('prod_id',$prod_id)->where('user_id', Auth::id())->first();
                 $keranjang->delete();
-                return response()->json(['status'=>"produk berhasil dihapus"]);
+                return response()->json(['success'=>$keranjang->product->name."produk berhasil dihapus"]);
             }
         }
 
         else{
-            return response()->json(['status'=>"login untuk melanjutkan"]);
+            return response()->json(['success'=>"login untuk melanjutkan"]);
         }
     }
 

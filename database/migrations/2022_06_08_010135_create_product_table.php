@@ -18,10 +18,9 @@ return new class extends Migration
             $table->bigInteger('cate_id');
             $table->string('name');
             $table->string('slug');
-            $table->mediumText('small_deskripsi')->nullable();
+            $table->tinyInteger('gender')->nullable();
             $table->longText('deskripsi')->nullable();
-            $table->string('harga_asli');
-            $table->string('harga_jual');
+            $table->integer('harga_jual');
             $table->string('image');
             $table->string('qty');
             $table->tinyInteger('status');

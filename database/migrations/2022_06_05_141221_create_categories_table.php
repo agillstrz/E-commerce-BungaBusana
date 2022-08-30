@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->tinyInteger('status')->default('0');
-            $table->tinyInteger('popular')->default('0'); 
             $table->string('image');
             $table->timestamps();
         });

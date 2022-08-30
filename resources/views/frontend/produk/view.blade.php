@@ -1,39 +1,45 @@
 @extends('frontend.index')
-
 @section('title')
-    Tampilan Produk
+    Detail Produk
 @endsection
 
 @section('conten')
 
-<div class="container" style="margin-top: 110px;">
+<div class="container min-vh-100" style="margin-top: 110px;">
 
   <div class="row">
     <div class="card bayangan product_data">
       <div class="card-body">
         <div class="row">
-          <div class="col-md-6 text-center">
-            <img src="{{ asset('assets/uploads/produk/'.$produk->image) }}" style="width: 420px" alt="" />
+          <div class="col-md-6 text-center position-relative">
+            @if ($produk->status == 1)
+            <label class="badge viewicon p-1 position-absolute bg-secondary fs-5">Trending</label>
+            @else
+            @endif
+            <img class="img-fluid" src="{{ asset('assets/uploads/produk/'.$produk->image) }}" style="width: 420px" alt="" />
           </div>
-          <div class="col-md-6 border fw-bold">
-            <div class="col-md-12 d-flex">
-              <h3 class="text-capitalize justify-content-between mb-0">
-                @if ($produk->status == 1)
-                <label class="badge p-1 btn btn-success fs-5" style="margin-left: 447px">Trending</label>
-                @else
-                    
-                @endif
-               
+          <div class="col-md-6 border">
+            <div class="col-md-12 d-flex position-relative">
+              <h4 class="text-capitalize mt-2 lg-fs-1 justify-content-between mb-0">
                 {{ $produk->name }}
-             
-            </h3>
+            </h4>
             </div>
             <hr>
-            <div class="col-md-12 d-flex">
-              <h3>{{"Rp. ".number_format($produk->harga_jual,0,"",".")  }}</h3>
-            </div>
             <div class="col-md-12 d-flex font-bold text-capitalize">
-              <h5>{{ $produk->category->name }}</h5>
+              <h5>Kategori : {{ $produk->category->name }}</h5>
+            </div>
+            <div class="col-md-12 d-flex">
+              <h5>Harga : <span class="fw-bolder"> @currency($produk->harga_jual)</span> </h5>
+            </div>
+            <div class="col-md-12 d-flex">
+              <p class="float-end fs-6"> @if($produk->gender == '0')
+                 unisex 
+          @elseif($produk->gender == '1')
+         Untuk Pria
+          @else
+         Untuk Wanita
+          @endif
+          </p>
             </div>
             <div class="col-md-12 d-flex">
               <p>
@@ -64,7 +70,6 @@
               <button type="submit" class="btn btnproduk d-flex addToCartBtn"
                 >Keranjang<i class="bi bi-cart-plus fs-5"></i
               ></button>
-              <a href="" class="btn btnproduk">Beli sekarang</a>
             </div>
             @else
             <div class="col-md-6 justify-content-between d-flex mt-3">

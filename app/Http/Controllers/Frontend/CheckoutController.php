@@ -7,9 +7,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
-use Laravel\Ui\Presets\React;
 use App\Http\Controllers\Controller;
-use App\Models\Pembayaran;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,6 +47,7 @@ class CheckoutController extends Controller
         $order->alamat = $request->input('alamat');
         $order->detail = $request->input('detail');
         $order->Kodepos = $request->input('Kodepos');
+        $order->pembayaran = $request->input('pembayaran');
         
         
        
@@ -57,10 +56,9 @@ class CheckoutController extends Controller
         $keranjangtotal =  Cart::where('user_id', Auth::id())->get();
         
         foreach ($keranjangtotal as $prod ) {
-            $total +=$prod->product->harga_jual;
+            $total +=$prod->product->harga_jual * $prod->prod_qty;
         }
         $order->totalharga = $total;
-        $order->nomortraking = rand(100000,999909);
         $order->save();
 
        
@@ -71,15 +69,15 @@ class CheckoutController extends Controller
                 'order_id'=> $order->id,
                 'prod_id'=>$item->prod_id,
                 'qty'=> $item->prod_qty,
-                'price'=> $item->product->harga_jual
+                'harga'=> $item->product->harga_jual
             ]);
 
             $produk = Product::where('id', $item->prod_id)->first();
             $produk->qty = $produk->qty - $item->prod_qty;
-            $produk->update();
+            $produk->update(); 
         }
         
-if (Auth::user() -> alamat == 0) 
+if (Auth::user()->alamat >= 0) 
 {
     $user =  User::where('id', Auth::id())->first();
     $user->namadepan = $request->input('namadepan');
@@ -87,6 +85,8 @@ if (Auth::user() -> alamat == 0)
     $user->Nohp = $request->input('Nohp');
     $user->alamat = $request->input('alamat');
     $user->Kodepos = $request->input('Kodepos');
+    $user->kota = $request->input('kota');
+    $user->provinsi = $request->input('provinsi');
     $user->update(); 
 }
 

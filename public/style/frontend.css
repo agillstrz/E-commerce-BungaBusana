@@ -1,6 +1,9 @@
 body{
+  position: relative;
   background-color: #D4ECE5;
   font-family: 'roboto', sans-serif;
+  padding-bottom: 5em;
+  min-height: 100%;
 }
 body a{
   text-decoration: none;
@@ -13,6 +16,13 @@ body a{
   color: #333333;
 }
 .mynav a{
+  color: #333333;
+}
+.mynav .pencarian{
+  color: #333333;
+
+}
+.mynav a{
   
   border-bottom: 3px solid transparent;
 }
@@ -20,11 +30,36 @@ body a{
   color: #CC9966;
   border-bottom: 3px solid #CC9966;
 }
+li .aktif{
+  color: #CC9966;
+  border-bottom: 3px solid #CC9966;
+}
 
+.bb{
+  color: #333333;
+}
+.bb:hover{
+  color: #CC9966;
+  border-bottom: 3px solid #CC9966;
+}
+.fixx{
+  background-color: #b8d8cf;
+  border: 1px solid whitesmoke;
 
+}
 .round{
   background-color: #333333;
   
+}
+.round .togle{
+  color: white;
+}
+
+.round a  {
+  color: white;
+}
+.round .pencarian  {
+  color: white;
 }
 .round a  {
   color: white;
@@ -145,20 +180,17 @@ nav sticky{
   opacity: 1;
 }
 
-@media (max-width: 575.98px) {
-  .produk {
-    position: absolute;
-    top: 74%;
-    opacity: 1;
-    width: 100%;
-  }
-  
-
-}
 /* produk */
 .produk {
   position: absolute;
   top: 74%;
+  opacity: 0;
+  width: 100%;
+}
+
+.card:hover .produk{
+  position: absolute;
+  top: 10%;
   opacity: 0;
   width: 100%;
 }
@@ -176,31 +208,40 @@ nav sticky{
 .card:hover .produk {
   top: 221px;
   opacity: 1;
-  transition:all .2s ease-out;
+  transition:all .2s ease-in;
 }
+.semuaproduk {
+  position: absolute;
+  top: 74%;
+  opacity: 0;
+  width: 100%;
+}
+.card:hover .semuaproduk {
+  top: 221px;
+  opacity: 1;
+  transition:all .2s ease-in;
+}
+
+
+
 /* produk */
 
 /* trending */
 .trending{
   /* From https://css.glass */
-background: rgba(255, 255, 255, 0.49);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-
-border: 1px solid rgba(255, 255, 255, 0.3);
-filter: drop-shadow(-5px 5px 10px #000);
+  box-shadow: 2px -2px 18px 2px #000;
 }
+
+
 .hovertrend:hover{
   opacity: .94;
+  transition: all .3s;
 }
 
 .trending:hover{
   opacity: 0.9;
 }
 /* Batas trending */
-
 
 /* keranjang */
 .keranjang{
@@ -234,7 +275,6 @@ BELIPRODUK */
   color: #CC9966;
   
 }
-
 /* view */
 .bayangan{
 /* From https://css.glass */
@@ -266,4 +306,77 @@ border: 1px solid rgba(255, 255, 255, 0.35);
     transition: all 0.15s linear;
 
 }
+
+.gender{
+  width: 90px;
+}
+.whatsapp{
+  bottom: 10px;
+  left: 10px;
+  position: fixed;
+}
+
+.kontak a{
+  color: #333333;
+  
+}
+.kontak{
+  outline:  solid #D4ECE5;
+}
+.kontak:hover{
+  filter: brightness(120%);
+  transition: all .3s;
+}
+
+.icontrend{
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  opacity: 1;
+  z-index: 1;
+}
+footer{
+position: absolute;
+bottom: 0;
+}
+.cart-count{
+  background-color: #CC9966;
+}
+
+footer{
+  position: relative;
+  top: 110px;
+  
+}
+.more:active{
+  box-shadow: none;
+  position: relative;
+  top: 10px;
+  transition: all .2s;
+}
+
+.viewicon{
+  right: 67px;
+  top: 2px;
+}
+.judul{
+  color: #333333;
+}
+
+.menuhome{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  opacity: 0;
+}
+
+.card:hover .menuhome{
+  bottom: 87px;
+  width: 100%;
+  opacity: 1;
+  transition: all .3s ease-in-out;
+  
+}
+
+
 

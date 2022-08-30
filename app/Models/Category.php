@@ -13,8 +13,6 @@ class Category extends Model
         'name',
         'slug',
         'deskripsi',
-        'status',
-        'popular',
         'image',
         
     ];

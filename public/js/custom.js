@@ -1,4 +1,24 @@
 $(document).ready(function () {
+    loadcart();
+    $.ajaxSetup({
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+    });
+     function loadcart() {
+        $.ajax({
+            type: "GET",
+            url: "/load-cart",
+            success: function (response) {
+                $('.cart-count').html('');
+                $('.cart-count').html(response.count);
+            }
+        });
+       }
+
+
+
+
     $(".addToCartBtn").click(function (e) {
         e.preventDefault();
         var produk_id = $(this).closest(".product_data").find(".prod_id").val();
@@ -21,6 +41,7 @@ $(document).ready(function () {
             },
             success: function (response) {
                 swal(response.status);
+                loadcart();
             },
         });
     });
@@ -53,13 +74,10 @@ $(document).ready(function () {
         }
     });
 
-    $.ajaxSetup({
-        headers: {
-            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-        },
-    });
 
-    $(".hapuskeranjang").click(function (e) {
+
+        $(document).on('click','.hapuskeranjang', function (e) {
+            
         e.preventDefault();
 
         var prod_id = $(this).closest(".product_data").find(".prod_id").val();
@@ -70,7 +88,8 @@ $(document).ready(function () {
                 prod_id: prod_id,
             },
             success: function (response) {
-                window.location.reload();
+                $('.cartitem').load(location.href + " .cartitem")
+                swal(response.success);
             },
         });
     });

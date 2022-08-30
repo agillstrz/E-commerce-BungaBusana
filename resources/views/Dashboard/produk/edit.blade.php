@@ -2,7 +2,7 @@
 
 @section('conten')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-  <h1 class="h2">Add Produk</h1>
+  <h1 class="h2">Edit Produk</h1>
 
 </div>
 <form method="POST" action="{{ url('update-produk/'.$produk->id) }}"   enctype="multipart/form-data">
@@ -11,10 +11,8 @@
   @method('PUT')
   <div class="row">
       <div class="col-md-12">
-        <select class="form-select" aria-label="Default select example">
-            <option value="">{{ $produk->category->name }}</option>
-         
-            
+        <select  class="form-select"  aria-label="Default select example">
+            <option  value="">{{ $produk->category->name }}</option>
           </select>
       </div>
     <div class="col-md-6">
@@ -27,8 +25,12 @@
       <input type="text" value="{{ $produk->slug }}"  class="form-control"  name="slug" id="slug">
     </div>
     <div class="col-md-6">
-      <label for="deskripsi" class="form-label">Small deksripsi</label>
-      <input type="text" value="{{ $produk->small_deskripsi }}" class="form-control" name="small_deskripsi" id="deskripsi" ">
+      <label for="">Pria/Wanita</label>
+      <select name="gender" class="form-select" aria-label="Default select example">
+        <option  {{ $produk->gender=='0' ? 'selected':'' }}   value="0">Pria dan Wanita</option>
+        <option  {{ $produk->gender=='1' ? 'selected':'' }}  value="1">Pria</option>
+        <option  {{ $produk->gender=='2' ? 'selected':'' }}  value="2">Wanita</option>
+      </select>
     </div>
     <div class="col-md-6">
       <label for="deskripsi" class="form-label">Deskripsi</label>
@@ -44,10 +46,7 @@
       <label for="trending">trending</label>
     </div>
     
-    <div class="col-md-3">
-        <label for="harga_asli" class="form-label">Harga Asli</label>
-        <input type="number" value="{{ $produk->harga_asli }}"  class="form-control"  name="harga_asli" id="name">
-      </div>
+
 
     <div class="col-md-3">
         <label for="harga_jual" class="form-label">Harga Jual</label>
@@ -64,13 +63,19 @@
         @if ($produk->image)
         <img src="{{ asset('assets/uploads/produk/'.$produk->image) }}" width="80px" alt="Produk image">
          @endif
-        <label for="image" class="form-label">image</label>
-        <input type="file" class="form-control" name="image" id="image">
+        <label for="image" class="form-label">Foto produk</label>
+        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image" >
+        @error('image')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+      @enderror
     </div>
     
   
     <div class="col-12 mt-4">
-      <button type="submit" class="btn btn-primary">Update Produk</button>
+      <button type="submit" class="btn btnproduk">Simpan <i class="fa-regular fa-floppy-disk"></i></button>
+      <a href="{{ url('produk') }}" class="btn btnproduk">Batal</a>
     </div>
     </form>
 

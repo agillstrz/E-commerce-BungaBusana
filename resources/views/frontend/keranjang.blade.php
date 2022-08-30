@@ -3,24 +3,24 @@
     Keranjang
 @endsection
 @section('conten')
-<div class="container-fluid p-2 keranjang" style="margin-top: 90px;">
+<div class="container-fluid keranjang pb-4 mb-lg-5" style="margin-top: 89px;">
 
-    <h1 class="text-center fs-1 fw-bold">Keranjang <br><p class="fw-normal fs-5">Belanja</p></h1>
+    <h1 class="text-center fs-1 fw-bold">Keranjang</h1>
   </div>
 
-  <div class="container">
+  <div class="container cartitem " >
     @if ($keranjang->count()>0)
         
-    <div class="table-responsive">
+    <div class=" mb-5">
 
-        <table class="table align-middle text-center">
+        <table class=" table align-middle text-center  ">
           <thead class="table-dark">
             <tr>
-              <th scope="col" class=" text-start">Foto</th>
-              <th scope="col" class=" text-start">Nama</th>
+              <th class="fot" scope="col" class=" text-center">Foto</th>
+              <th scope="col" class="text-center ">Nama</th>
               <th scope="col">harga satuan</th>
-              <th scope="col" style="width:110px;">Kuantitas</th>
-              <th scope="col">Aksi</th>
+              <th scope="col" style="width:110px;">Jumlah</th>
+              <th  scope="col">Aksi</th>
             </tr>
           </thead>
           @php
@@ -29,10 +29,10 @@
           <tbody>
              @foreach ($keranjang as $item)
 
-             <tr class="fw-bold border border-dark product_data">
-              <td class=""><img src="{{ asset('assets/uploads/produk/'. $item->product->image) }}" width="100px" alt=""></td>
-              <td><h4 class="fw-bold">{{ $item->product->name }}</h4></td>
-              <td>{{ "Rp. ".number_format($item->product->harga_jual * $item->prod_qty,0,"",".")   }}</td>
+             <tr class=" border border-dark product_data ">
+              <td class="fot"><img src="{{ asset('assets/uploads/produk/'. $item->product->image) }}" width="100px" alt=""></td>
+              <td ><p class="fs-6">{{ $item->product->name }}</p></td>
+              <td>@currency($item->product->harga_jual)</td>
 
               @if ($item->product->qty >= $item->prod_qty)
               <td> 
@@ -43,12 +43,13 @@
                    <button class="input-group-text ubahharga increment-btn">+</button>
                   </td>
                   @else
-                 <td>KOSONG</td>
+                  <input type="hidden" value="{{ $item->product->id }}" class="prod_id">
+                 <td>Produk Habis</td>
                 @endif
             
                 
+                <td ><button class="btn btn-danger btn-md  hapuskeranjang"><i class="fa-solid fa-trash-can"></i> Hapus</button></td>
 
-              <td><button class="btn btn-danger hapuskeranjang">Hapus</button></td>
             </tr>
             @php
            $total+=$item->product->harga_jual *  $item->prod_qty;
@@ -57,11 +58,11 @@
           </tbody>
          
         </table>
-        <div class="card-footer">
-          <h5>Total Harga :  {{"Rp. ".number_format($total,0,"",".")  }}</h5>
-          <a href="{{ url('Checkout') }}" class="float-end btn btnproduk">Checkout</a>
+        <div class="card-footer pb-2">
+          <h5>Total Pesanan : <span class="fw-bolder">@currency($total)</span></h5>
         </div>
-    </div>
+        <a href="{{ url('Checkout') }}" class="float-end btn btnproduk me-1 mb-5">Checkout</a>
+      </div>
     @else
         <div class="card mt-2">
           <div class="card-body text-center">
@@ -71,5 +72,6 @@
           </div>
         </div>
     @endif
+  </div>
 @endsection  
 

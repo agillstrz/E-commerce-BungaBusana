@@ -151,3 +151,67 @@ body {
   color: #CC9966;
   border: 1px solid #CC9966;
 }
+.btnpro{
+  background-color: #CC9966;
+  color: white;
+  opacity: 1;
+}
+.btnpro:hover{
+  background-color: white;
+  color: #CC9966;
+  opacity: 1;
+}
+.semua{
+  cursor: pointer;
+  border-radius: 15px;
+  box-shadow: 0px 6px 12px 2px rgba(0, 0, 0, 0.4);
+}
+.semua:hover .total b{
+  text-decoration: underline;
+
+}
+.head{
+  background-color: #333333;
+}
+.sidehov:hover{
+  background-color: #CC9966;
+  transition: all .3s;
+  opacity: .7;
+}
+.sidehov:hover a{
+  color: white;
+}
+
+.btnpros{
+  background-color: #CC9966;
+  color: white;
+  opacity: 1;
+}
+.btnpros:hover{
+  background-color: #333333;
+  color: #CC9966;
+  opacity: 1;
+  transition: all .2s;
+}
+
+.bgtable{
+  background-color: #333333;
+  color: white;
+  font-weight: bold;
+}
+.icontrend{
+right: 170px;
+}
+@media (max-width: 767.98px) { 
+
+  .icontrend{
+    right:50px;
+    top: 3px;
+    font-size: 6px;
+
+  }
+
+}
+.pendapatan{
+  background-color: #CC9966;
+}

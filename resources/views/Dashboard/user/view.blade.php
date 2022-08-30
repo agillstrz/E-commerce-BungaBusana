@@ -1,7 +1,7 @@
 @extends('dashboard.layouts.admin')
 @section('conten')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Order List</h1>
+        <h1 class="h2">Pengguna</h1>
 
     </div>
     <div class="container">
@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="card-header">
-                            <h4>User detail</h4>
+                            <h4>Detail Pengguna</h4>
                         </div>
                         <div class="row">
                             <div class="col-md-4 mb-2">
@@ -41,6 +41,10 @@
                             <div class="col-md-4 mb-2">
                                 <label for="">Kode Pos</label>
                                 <div class="p-2 border mt-2">{{ $user->kodepos }}</div>
+                            </div>
+                            <div class="col-md-4 mb-2">
+                                <label for="">Tanggal Pembuatan akun</label>
+                                <div class="p-2 border mt-2">{{ $user->created_at }}</div>
                             </div>
                         </div>
                     </div>

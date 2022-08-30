@@ -26,10 +26,9 @@ return new class extends Migration
             $table->string('detail')->nullable();
             $table->string('kodepos');
             $table->string('image');
-            $table->string('totalharga');
+            $table->integer('totalharga');
             $table->tinyInteger('status')->default('0');
-            $table->string('message')->nullable();
-            $table->string('nomortraking')->unique();
+            $table->tinyInteger('pembayaran');
             $table->timestamps();
         });
     }

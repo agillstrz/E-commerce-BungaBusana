@@ -3,14 +3,13 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\admin\OrderController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\CartController;
-use App\Http\Controllers\frontend\UserController;
+use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\admin\DashboardController;
-use App\Http\Controllers\frontend\BayarController;
-use App\Http\Controllers\frontend\CheckoutController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\FrontendController;
 
 
@@ -28,32 +27,35 @@ use App\Http\Controllers\Frontend\FrontendController;
 
 
 
-Route::get('produklist',[FrontendController::class, 'produklistajax']);
-Route::post('cariproduk',[FrontendController::class, 'cariproduk']);
 
 Route::get('/',[FrontendController::class, 'index']);
 Route::get('/home',[FrontendController::class, 'index']);
-Route::get('semuaproduk',[FrontendController::class, 'indexx']);
-Route::get('kategori/{slug}',[FrontendController::class, 'tampilankategori']);
-Route::get('kategori/{cate_slug}/{prod_slug}',[FrontendController::class, 'tampilanproduk']);
+Route::get('/semuaproduk',[FrontendController::class, 'semuaproduk']);
+Route::get('/produkpria',[FrontendController::class, 'produkpria']);
+Route::get('/produkwanita',[FrontendController::class, 'produkwanita']);
+Route::get('/kategori',[FrontendController::class, 'semuakategori']);
+Route::get('/kategori/{slug}',[FrontendController::class, 'tampilankategori']);
+Route::get('/kategori/{cate_slug}/{prod_slug}',[FrontendController::class, 'tampilanproduk']);
+Route::get('/kontak',[FrontendController::class, 'kontak']);
 
 
-Route::post('add-to-cart', [CartController::class, 'addproduk']);
-Route::post('hapus-keranjang', [CartController::class, 'hapuskeranjang']);
-Route::post('update-cart', [CartController::class, 'updatecart']);
+Route::post('/add-to-cart', [CartController::class, 'addproduk']);
+Route::post('/hapus-keranjang', [CartController::class, 'hapuskeranjang']);
+Route::post('/update-cart', [CartController::class, 'updatecart']);
+Route::GET('/load-cart', [CartController::class, 'cartcount']);
 
 
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('keranjang', [CartController::class, 'viewcart']);
-    Route::get('Checkout', [CheckoutController::class, 'index']);
-    Route::post('place-order', [CheckoutController::class, 'placeorder']);
+    Route::get('/keranjang',[CartController::class, 'viewcart']);
+    Route::get('/Checkout',[CheckoutController::class, 'index']);
+    Route::post('/place-order',[CheckoutController::class, 'placeorder']);
 
-    Route::get('orderlist', [UserController::class, 'index']);
-    Route::get('view-order/{id}', [UserController::class, 'view']);
+    Route::get('/orderlist', [UserController::class, 'index']);
+    Route::get('/view-order/{id}', [UserController::class, 'view']);
 
-    Route::post('proses-pembayaran', [CheckoutController::class, 'razor']);
+    Route::post('/proses-pembayaran', [CheckoutController::class, 'razor']);
 
    
 });
@@ -72,21 +74,21 @@ Auth::routes();
     Route::put('/update-category/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'update']);
     Route::get('/delete-category/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'destroy']);
 
-    Route::get('produk', [App\Http\Controllers\Admin\ProductController::class, 'index']);
-    Route::get('add-produk', [App\Http\Controllers\Admin\ProductController::class, 'add']);
-    Route::post('insert-produk', [App\Http\Controllers\Admin\ProductController::class, 'insert']);
-    Route::get('edit-produk/{id}', [App\Http\Controllers\Admin\ProductController::class, 'edit']);
+    Route::get('/produk', [App\Http\Controllers\Admin\ProductController::class, 'index']);
+    Route::get('/add-produk', [App\Http\Controllers\Admin\ProductController::class, 'add']);
+    Route::post('/insert-produk', [App\Http\Controllers\Admin\ProductController::class, 'insert']);
+    Route::get('/edit-produk/{id}', [App\Http\Controllers\Admin\ProductController::class, 'edit']);
     Route::put('/update-produk/{id}', [App\Http\Controllers\Admin\ProductController::class, 'update']);
     Route::get('delete-produk/{id}', [App\Http\Controllers\Admin\ProductController::class, 'destroy']);
 
 
     Route::get('/orders', [OrderController::class, 'index']);
-    Route::get('admin/view-order/{id}', [OrderController::class, 'view']);
-    Route::put('update-order/{id}', [OrderController::class, 'updateorder']);
-    Route::get('order-history', [OrderController::class, 'history']);
+    Route::get('/admin/view-order/{id}', [OrderController::class, 'view']);
+    Route::put('/update-order/{id}', [OrderController::class, 'updateorder']);
+    Route::get('/order-history', [OrderController::class, 'history']);
 
-    Route::get('user-list', [DashboardController::class, 'index']);
-    Route::get('view-user/{id}', [DashboardController::class, 'view']);
+    Route::get('/user-list', [DashboardController::class, 'index']);
+    Route::get('/view-user/{id}', [DashboardController::class, 'view']);
     
    
  });

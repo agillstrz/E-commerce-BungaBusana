@@ -5,40 +5,35 @@
     <hr>
     <div class="position-sticky">
         <ul class="nav flex-column">
-            <li class="nav-item">
+            <li class="nav-item sidehov">
                 <a class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}" aria-current="page"
                     href="{{ url('dashboard') }}">
-                    <span data-feather="home" class="align-text-bottom"></span>
-                    Dashboard
+                    <i class="fa-solid fa-house"></i> Dashboard
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item sidehov">
                 <a class="nav-link {{ Request::is('categories') ? 'active' : '' }}" aria-current="page"
                     href="{{ url('categories') }}">
-                    <span data-feather="file" class="align-text-bottom"></span>
-                    Category
+                    <i class="fa-solid fa-boxes-packing"></i> Kategori
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item sidehov">
                 <a class="nav-link {{ Request::is('produk') ? 'active' : '' }}" aria-current="page"
                     href="{{ url('produk') }}">
-                    <span data-feather="file-plus" class="align-text-bottom"></span>
-                    product
+                    <i class="fa-solid fa-suitcase-rolling"></i> Produk
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('orders') ? 'active' : '' }}" aria-current="page"
+            <li class="nav-item sidehov">
+                <a class="nav-link {{ Request::is('orders' ) ? 'active' : '' }}" aria-current="page"
                     href="{{ url('orders') }}">
-                    <span data-feather="file-plus" class="align-text-bottom"></span>
-                    Order list
+                    <i class="fa-solid fa-cart-arrow-down"></i> Daftar Pesanan<span class="badge pesananbaru rounded-circle"></span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item sidehov">
                 <a class="nav-link {{ Request::is('user-list') ? 'active' : '' }}" aria-current="page"
                     href="{{ url('user-list') }}">
-                    <span data-feather="file-plus" class="align-text-bottom"></span>
-                    User
+                    <i class="fa-solid fa-user"></i> Pengguna
                 </a>
             </li>
 

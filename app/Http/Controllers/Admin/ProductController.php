@@ -11,20 +11,24 @@ use Illuminate\Support\Facades\File;
 class ProductController extends Controller
 {
     public function index(){
+        if(request('cari')){
+        $produk = Product::where('name','LIKE','%'.request('cari').'%')->get();
+        } else{
         $produk = Product::all();
+        }
+
         return view('dashboard.produk.index', compact('produk'));
     }
 
     public function add(){
-        
-        $category = Category::all();
+        $category= Category::all();
         return view('dashboard.produk.add', compact('category'));
     }
 
     public function insert(Request $request){
         $produk = new Product();
         if ($request->hasFile('image')) 
-        {
+    {
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
             $filename = time().'.'.$ext;
@@ -35,9 +39,8 @@ class ProductController extends Controller
         $produk->cate_id = $request->input('cate_id');
         $produk->name = $request->input('name');
         $produk->slug = $request->input('slug');
-        $produk->small_deskripsi = $request->input('small_deskripsi');
+        $produk->gender = $request->input('gender');
         $produk->deskripsi = $request->input('deskripsi');
-        $produk->harga_asli = $request->input('harga_asli');
         $produk->harga_jual = $request->input('harga_jual'); 
         $produk->qty = $request->input('jumlah');
         $produk->status = $request->input('status')== TRUE ? '1':'0';;
@@ -71,9 +74,8 @@ class ProductController extends Controller
     }
         $produk->name = $request->input('name');
         $produk->slug = $request->input('slug');
-        $produk->small_deskripsi = $request->input('small_deskripsi');
+        $produk->gender = $request->input('gender');
         $produk->deskripsi = $request->input('deskripsi');
-        $produk->harga_asli = $request->input('harga_asli');
         $produk->harga_jual = $request->input('harga_jual');
         $produk->qty = $request->input('jumlah');
         $produk->status = $request->input('status') == TRUE ? '1':'0';

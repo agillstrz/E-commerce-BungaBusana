@@ -1,13 +1,14 @@
 @extends('auth.layouts.layout')
 @section('conten')
-    <section class="vh-100">
-        <div class="container-fluid h-custom">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-md-9 col-lg-6 col-xl-5">
-                    <img src="{{ asset('assets/images/login.png') }}" height="500px"class=""alt="Sample image" />
+
+    <section class="mt-5">
+        <div class="container-fluid loginhp h-custom">
+            <div class="row  d-flex justify-content-center align-items-center h-100">
+                <div class="d-none d-lg-inline col-md-6 col-lg-6 col-xl-5">
+                    <img src="{{ asset('assets/images/login.png') }}" height="500px"class=""alt="Sample image" style="right: 500px" />
                 </div>
 
-                <div class="col-md-8 text-white col-lg-6 col-xl-4 offset-xl-1 borderlog">
+                <div class="col-md-8 text-white col-lg-6 col-xl-4 offset-xl-1 borderlog" >
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="divider d-flex align-items-center my-4">
@@ -46,7 +47,6 @@
                                 <input class="form-check-input me-2"type="checkbox"value=""id="form2Example3" />
                                 <label class="form-check-label" for="form2Example3">Remember me</label>
                             </div>
-                            <a href="#!" class="text-body">Forgot password?</a>
                         </div>
 
                         <div class="text-center text-lg-start mt-4">
@@ -55,8 +55,8 @@
                                 Login
                             </button>
 
-                            <p class="small fw-bold mt-2 pt-1 mb-0"> Don't have an account? <a
-                                    href="{{ route('register') }}" class="link-danger">Register</a></p>
+                            <p class="small fw-bold mt-2 pt-1 mb-0"> Belum punya akun ? <a
+                                    href="{{ route('register') }}" class="link" style="color: #333333">Daftar</a></p>
 
                         </div>
                     </form>

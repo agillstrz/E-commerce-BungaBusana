@@ -13,12 +13,10 @@ class Product extends Model
         'cate_id',
         'name',
         'slug',
-        'small_deskripsi',
+        'gender',
         'deskripsi',
-        'harga_asli',
         'harga_jual',
-        'image1',
-        'image2',
+        'image',
         'qty',
         'status',
         'trending',
@@ -28,4 +26,6 @@ class Product extends Model
     public function category(){
         return $this->belongsTo(Category::class, 'cate_id','id');
     }
+
+
 }

@@ -24,6 +24,8 @@ return new class extends Migration
             $table->text('alamat')->nullable();
             $table->string('kodepos')->nullable();
             $table->string('Nohp')->nullable();
+            $table->string('kota')->nullable();
+            $table->string('provinsi')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

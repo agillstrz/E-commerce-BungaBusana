@@ -1,9 +1,9 @@
 @extends('auth.layouts.layout')
 @section('conten')
-    <section class="vh-100">
+    <section class="mt-5 mb-5 ">
         <div class="container-fluid h-custom">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-md-9 col-lg-6 col-xl-5">
+                <div class="col-md-9 d-none d-lg-inline  col-lg-6 col-xl-5 kontenlogin">
                     <img src="{{ asset('assets/images/register.png') }}" class="mb-5" alt="Sample image" />
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 borderlog">
@@ -71,7 +71,7 @@
 
                             <div class="col-md-6">
                                 <div class="form-outline mb-3">
-                                    <label class="form-label" for="form3Example4">Confirmasi Password</label>
+                                    <label class="form-label" for="form3Example4">konfirmasi Password</label>
                                     <input type="password" name="password_confirmation" id="form3Example4"
                                         class="form-control form-control-md" placeholder="Masukkan password" />
                                 </div>
@@ -82,8 +82,8 @@
                             <button type="submit"
                                 class="btn btn-lg btnlogin"style="padding-left: 2.5rem; padding-right: 2.5rem">
                                 Daftar</button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0"> Sudah punya akun? <a href="{{ route('login') }}"
-                                    class="link-danger">Login</a>
+                            <p class="small fw-bold text-white mt-2 pt-1 mb-0"> Sudah punya akun? <a href="{{ route('login') }}"
+                                    class="link" style="color: #333333">Login</a>
                             </p>
                         </div>
                     </form>
