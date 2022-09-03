@@ -41,10 +41,10 @@
                                 </td>
                         <td>
                             <div>
-                                <a href="{{ url('edit-produk/' . $item->id) }}" class="btn btnpros"> <i
-                                        class="fa-regular fa-pen-to-square"> Edit</i></a>
-                                <a href="{{ url('delete-produk/' . $item->id) }}" class="btn btnpros"> <i
-                                        class="fa-regular fa-trash-can"> Delete</i></a>
+                                <a href="{{ url('edit-produk/' . $item->id) }}" class="btn btnpros"><span
+                                        class="fa-regular fa-pen-to-square">Edit</span></a>
+                                <a href="{{ url('delete-produk/' . $item->id) }}" class="btn btnpros"><span
+                                        class="fa-regular fa-trash-can"> Delete</span></a>
                             </div>
                         </td>
                     </tr>
