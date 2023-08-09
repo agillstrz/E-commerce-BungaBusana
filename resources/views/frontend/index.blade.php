@@ -24,7 +24,7 @@
 
    @include('frontend.layouts.navbar')
 
-@yield('sampul')
+  @yield('sampul')
     
     <section>
         @yield('conten')

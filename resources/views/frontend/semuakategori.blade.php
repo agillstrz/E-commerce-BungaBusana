@@ -15,7 +15,7 @@
                 <div class="card hovertrend " >
                     <img src="{{ asset('assets/uploads/category/'.$item->image) }}" alt="">
                     <div class="card-body text-center">
-                        <h5 class="card-title fw-bolder text-capitalize"" >{{ $item->name }}</h5>
+                        <h5 class="card-title fw-bolder text-capitalize" >{{ $item->name }}</h5>
                     </div>
                 </div>
             </a>
